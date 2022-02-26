@@ -7,10 +7,10 @@ import time
 import smtplib
 from email.mime.text import MIMEText
 mail_host = 'smtp.163.com'  #邮件
-mail_user = '13513236276'  #账号用户名
-mail_pass = 'CQHHBSJIFGDDMUKP'   #账号密码 网易邮箱是smtp绑定码
-sender = '13513236276@163.com'  #发送邮箱
-receivers = ['2871599908@qq.com']  #接收邮箱
+mail_user = '135****'  #账号用户名
+mail_pass = 'CQHHBSJI*****'   #账号密码 网易邮箱是smtp绑定码
+sender = '13513*****@163.com'  #发送邮箱
+receivers = ['2871*****@qq.com']  #接收邮箱
 
 
 def send_mail(title='',content=''):
@@ -132,8 +132,8 @@ def auto_post(user,passwd,address):#自动填写上下午体温
         post_tw(user,passwd,address=address,url=add_url,time='下午体温')#下午体温网址
 
 if __name__=="__main__":#主程序执行
-    auto_post(user='0215190104',passwd='13513236276.',address='河北省张家口市怀来县')
-    auto_post(user='0414190127',passwd='011027zm',address='河北省衡水市枣强县')
+    auto_post(user='0215****',passwd='1******',address='河北省张家口市怀来县')
+    auto_post(user='0414*****',passwd='01*****',address='河北省衡水市****')
 
 
 
