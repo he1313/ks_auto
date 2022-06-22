@@ -27,6 +27,9 @@ jobs:
       - name: 'Working'
         env:
           zh1: ${{ secrets.zh1 }}
+          zh2: ${{ secrets.zh2 }}
+          ps1: ${{ secrets.ps1 }}
+          ps2: ${{ secrets.ps2 }}
         run: python ks_auto.py
           
           
