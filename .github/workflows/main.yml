@@ -1,30 +1,14 @@
-# This is a basic workflow to help you get started with Actions
-
 name: auto
-
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
   schedule:
    - cron:  '0 0,5 * * *'
-
-
 jobs:
-  
   build:
-   
     runs-on: ubuntu-latest
-
-   
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v3
-
-
-
       - name: 'Working'
         env:
           zh1: ${{ secrets.zh1 }}
