@@ -4,7 +4,7 @@ name: ks_auto
 
 on:
   schedule:
-   - cron:  '30 16,5 * * *'
+   - cron:  '0 0,5 * * *'
   push:
     branches: [ "main" ]
   pull_request:
