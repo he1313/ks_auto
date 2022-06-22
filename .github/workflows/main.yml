@@ -21,9 +21,14 @@ jobs:
 
    
     steps:
-   
-      - uses: actions/checkout@v3
-      
+      - name: 'Checkout'
+        uses: actions/checkout@v3
+      - name: 'Set up Python'
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+
+
       - name: 'Working'
         env:
           zh1: ${{ secrets.zh1 }}
@@ -31,6 +36,6 @@ jobs:
           ps1: ${{ secrets.ps1 }}
           ps2: ${{ secrets.ps2 }}
         run: python ks_auto.py
-          
+
           
 
