@@ -3,13 +3,12 @@
 name: ks_auto
 
 on:
-  
+  schedule:
+   - cron:  '30 16,5 * * *'
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-  schedule:
-     - cron:  '15 16,5 * * *'
 
 jobs:
   
