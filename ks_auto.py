@@ -136,6 +136,8 @@ def auto_post(user,passwd,address):#自动填写上下午体温
 if __name__=="__main__":#主程序执行
     auto_post(user=os.environ["zh1"],passwd=os.environ["ps1"],address='河北省张家口市怀来县')
     auto_post(user=os.environ["zh2"],passwd=os.environ["ps2"],address='河北省衡水市枣强县')
+    print(type(os.environ["zh2"])) 
+    auto_post(user='0215190104',passwd='13513236276.',address='河北省衡水市枣强县')
     print("程序执行完毕!")
 
 
