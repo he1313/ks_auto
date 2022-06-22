@@ -2,6 +2,8 @@ import re
 import random
 import requests
 import time
+import os
+
 #发送邮件模块
 #***************************************************************
 import smtplib
@@ -134,6 +136,7 @@ def auto_post(user,passwd,address):#自动填写上下午体温
 if __name__=="__main__":#主程序执行
     auto_post(user='0215****',passwd='1******',address='河北省张家口市怀来县')
     auto_post(user='0414*****',passwd='01*****',address='河北省衡水市****')
+    print(os.environ["zh1"])
     print("程序执行完毕!")
 
 
