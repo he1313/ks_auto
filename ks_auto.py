@@ -9,10 +9,10 @@ import os
 import smtplib
 from email.mime.text import MIMEText
 mail_host = 'smtp.163.com'  #邮件
-mail_user = '135****'  #账号用户名
-mail_pass = 'CQHHBSJI*****'   #账号密码 网易邮箱是smtp绑定码
-sender = '13513*****@163.com'  #发送邮箱
-receivers = ['2871*****@qq.com']  #接收邮箱
+mail_user = os.environ["mail_user"]  #账号用户名
+mail_pass = os.environ["mail_pass"]   #账号密码 网易邮箱是smtp绑定码
+sender = os.environ["sender_mail"] #发送邮箱
+receivers = [os.environ["receiver_mail"]]  #接收邮箱
 
 
 def send_mail(title='',content=''):
@@ -116,12 +116,12 @@ def post_tw(user,passwd,address='',url='',time=''):#填写体温的总程序
                 print(save_s[0])
             else:
                 print('填写失败!')
-                #send_mail(time+'自动填写体温失败!')#如果不需要发送邮件可以删除此行
+                send_mail(time+'自动填写体温失败!')#如果不需要发送邮件可以删除此行
         except:
             print('填写失败!')
-            #send_mail(time+'自动填写体温失败!')#如果不需要发送邮件可以删除此行
+            send_mail(time+'自动填写体温失败!')#如果不需要发送邮件可以删除此行
     except:
-        #send_mail(time+'自动填写体温失败!')#如果不需要发送邮件可以删除此行
+        send_mail(time+'自动填写体温失败!')#如果不需要发送邮件可以删除此行
         return "产生异常"
         
 add_url=murl+'NCIR/user_data/add/'
