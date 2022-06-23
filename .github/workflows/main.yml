@@ -21,6 +21,12 @@ jobs:
           zh2: ${{ secrets.zh2 }}
           ps1: ${{ secrets.ps1 }}
           ps2: ${{ secrets.ps2 }}
+          
+          mail_user : ${{ secrets.mail_user}}
+          mail_pass : ${{ secrets.mail_pass}}
+          sender_mail : ${{ secrets.sender_mail}}
+          receiver_mail : ${{ secrets.receiver_mail}}         
+          
         run: |
              python ks_auto.py
 
