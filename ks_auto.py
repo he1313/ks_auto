@@ -128,7 +128,7 @@ add_url=murl+'NCIR/user_data/add/'
 
     
 def auto_post(user,passwd,address):#自动填写上下午体温
-    if(get_time()<12):
+    if(get_time()+8 <12): #UTC个北京时间差8h
         post_tw(user,passwd,address=address,url=add_url,time='上午体温')#上午体温网址
     else:
         post_tw(user,passwd,address=address,url=add_url,time='下午体温')#下午体温网址
