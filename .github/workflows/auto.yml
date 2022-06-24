@@ -1,0 +1,33 @@
+name: auto
+on:
+  schedule:
+    - cron: '10 0,5 * * *'
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v3
+      - name: 'Working'
+        env:
+          zh1: ${{ secrets.zh1 }}
+          zh2: ${{ secrets.zh2 }}
+          ps1: ${{ secrets.ps1 }}
+          ps2: ${{ secrets.ps2 }}
+          
+          mail_user : ${{ secrets.mail_user}}
+          mail_pass : ${{ secrets.mail_pass}}
+          sender_mail : ${{ secrets.sender_mail}}
+          receiver_mail : ${{ secrets.receiver_mail}}         
+          
+        run: |
+             python ks_auto.py
+
+          
+
