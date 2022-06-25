@@ -137,6 +137,4 @@ if __name__=="__main__":#主程序执行
     auto_post(os.environ["zh1"],os.environ["ps1"],address='河北省张家口市怀来县')
     auto_post(os.environ["zh2"],os.environ["ps2"],address='河北省衡水市枣强县')
     print("程序执行完毕!")
-
-
   
