@@ -26,8 +26,7 @@ jobs:
           sender_mail : ${{ secrets.sender_mail}}
           receiver_mail : ${{ secrets.receiver_mail}}         
           
-        run: |
-             python ks_auto.py
+        run: python ks_auto.py
 
           
 
