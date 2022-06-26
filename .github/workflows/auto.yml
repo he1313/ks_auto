@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v3
@@ -20,7 +20,6 @@ jobs:
           zh2: ${{ secrets.zh2 }}
           ps1: ${{ secrets.ps1 }}
           ps2: ${{ secrets.ps2 }}
-          
           mail_user : ${{ secrets.mail_user}}
           mail_pass : ${{ secrets.mail_pass}}
           sender_mail : ${{ secrets.sender_mail}}
