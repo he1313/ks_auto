@@ -128,13 +128,17 @@ add_url=murl+'NCIR/user_data/add/'
 
     
 def auto_post(user,passwd,address):#自动填写上下午体温
-    if(get_time()+8 <12): #UTC个北京时间差8h
-        post_tw(user,passwd,address=address,url=add_url,time='上午体温')#上午体温网址
+    if(4<get_time()<16): #UTC
+     post_tw(user,passwd,address=address,url=add_url,time='下午体温')#下午体温网址
     else:
-        post_tw(user,passwd,address=address,url=add_url,time='下午体温')#下午体温网址
-
+     post_tw(user,passwd,address=address,url=add_url,time='上午体温')#上午体温网址
+    
 if __name__=="__main__":#主程序执行
-    auto_post(os.environ["zh1"],os.environ["ps1"],address='河北省张家口市怀来县')
-    auto_post(os.environ["zh2"],os.environ["ps2"],address='河北省衡水市枣强县')
+    u1 = os.environ["zh1"]
+    p1 = os.environ["ps1"]
+    u2 = os.environ["zh2"]
+    p2 = os.environ["ps2"]
+    auto_post(u1,p1,address='河北省张家口市怀来县')
+    auto_post(u2,p2,address='河北省衡水市枣强县')
     print("程序执行完毕!")
   
