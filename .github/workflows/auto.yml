@@ -14,6 +14,10 @@ jobs:
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v3
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
       - name: 'Working'
         env:
           zh1: ${{ secrets.zh1 }}
@@ -24,7 +28,6 @@ jobs:
           mail_pass : ${{ secrets.mail_pass}}
           sender_mail : ${{ secrets.sender_mail}}
           receiver_mail : ${{ secrets.receiver_mail}}         
-          
         run: python ks_auto.py
 
           
