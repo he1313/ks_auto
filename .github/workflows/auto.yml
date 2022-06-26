@@ -17,7 +17,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v3
         with: 
-            python-version: '3.10'
+            python-version: '3.7'
   
  
       - name: 'Working'
@@ -30,7 +30,9 @@ jobs:
           mail_pass : ${{ secrets.mail_pass}}
           sender_mail : ${{ secrets.sender_mail}}
           receiver_mail : ${{ secrets.receiver_mail}}         
-        run: python ks_auto.py
+        run: |
+             pip install requests
+             python ks_auto.py
 
           
 
