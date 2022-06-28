@@ -108,7 +108,7 @@ def post_tw(user,passwd,address='',url='',time=''):#填写体温的总程序
         json['tw'] =get_rand_tw() #此行为随机生成体温注释掉为默认体温
         json['lc'] = address
         mlogin(user,passwd)
-        r = requests.post(url,headers=header,data=json)
+        r = requests.post(url,headers=header,data=json,verify = Flase)
         r.encoding = r.apparent_encoding
         save_s=re.findall('alert\("(.*?)"\);',r.text)
         try:
@@ -122,7 +122,7 @@ def post_tw(user,passwd,address='',url='',time=''):#填写体温的总程序
             send_mail(time+'自动填写体温失败!')#如果不需要发送邮件可以删除此行
     except:
         print('获取网页信息失败')
-        r = requests.post(url,headers=header,data=json)
+        r = requests.post(url,headers=header,data=json,verify = Flase)
         send_mail(time+'自动填写体温失败!')#如果不需要发送邮件可以删除此行
         return "产生异常"
         
