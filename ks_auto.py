@@ -74,6 +74,7 @@ json = {
 
 def Simulate_login():
     s = requests.Session()
+    s.keep_alive = False
     html= s.get(murl).text
     userdata['csrfmiddlewaretoken']=re.findall('"csrfmiddlewaretoken" value="(.*?)"',html)[0]
     header['Cookie'] = re.findall('(csrftoken.*?) f',str(s.cookies))[0]
