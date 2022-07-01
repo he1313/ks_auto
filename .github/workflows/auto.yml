@@ -31,6 +31,9 @@ jobs:
           sender_mail : ${{ secrets.sender_mail}}
           receiver_mail : ${{ secrets.receiver_mail}}         
         run: |
+             pip install cryptography
+             pip install pyOpenSSL
+             pip install certifi
              pip install requests
              python ks_auto.py
 
