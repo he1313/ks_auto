@@ -146,4 +146,3 @@ if __name__=="__main__":#主程序执行
     auto_post(u2,p2,address='河北省衡水市枣强县')
     print("程序执行完毕!")
     
-  
