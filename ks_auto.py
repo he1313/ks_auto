@@ -73,7 +73,6 @@ json = {
 }
 
 def Simulate_login():
-    sleep(0.5)
     s = requests.Session()
     html= s.get(murl).text
     userdata['csrfmiddlewaretoken']=re.findall('"csrfmiddlewaretoken" value="(.*?)"',html)[0]
@@ -106,7 +105,6 @@ def get_rand_tw():
 
 def post_tw(user,passwd,address='',url='',time=''):#填写体温的总程序
     try:
-        sleep(1)
         json['tw'] =get_rand_tw() #此行为随机生成体温注释掉为默认体温
         json['lc'] = address
         mlogin(user,passwd)
