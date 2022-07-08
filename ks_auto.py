@@ -35,7 +35,7 @@ def send_mail(title='',content=''):
 header = {
 'Connection': 'keep-alive',
 'Host': 'ksxskj.hevttc.edu.cn',
-'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36 Edg/98.0.1108.43',
+'User-Agent': 'User-Agent: Mozilla/5.0 (Linux; U; Android 2.2.1; zh-cn; HTC_Wildfire_A3333 Build/FRG83D) AppleWebKit/533.1(KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
 'Origin': 'https://ksxskj.hevttc.edu.cn',
 'Referer': 'https://ksxskj.hevttc.edu.cn/NCIR/user_data/16543719/change/',
 'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
@@ -43,6 +43,7 @@ header = {
 'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6',
 'Cookie': ''
 }
+#Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36 Edg/98.0.1108.43
 
 #/**********************模拟登录
 murl ='https://ksxskj.hevttc.edu.cn/'
