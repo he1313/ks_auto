@@ -76,7 +76,7 @@ def Simulate_login():
     sleep(0.5)
     s = requests.Session()
     s.keep_alive = False
-    html= s.get(murl).text
+    html= s.get(murl,verify = False).text
     userdata['csrfmiddlewaretoken']=re.findall('"csrfmiddlewaretoken" value="(.*?)"',html)[0]
     header['Cookie'] = re.findall('(csrftoken.*?) f',str(s.cookies))[0]
     srequests =requests.session()
@@ -100,19 +100,20 @@ def get_time():#获取当前时间
 
 
 def get_rand_tw():
-    r = random.randint(2,6)
+    r = random.randint(3,6)
     X = 36+r/10
     return str(X)
 
 
 def post_tw(user,passwd,address='',url='',time=''):#填写体温的总程序
     try:
-        sleep(1)
         urllib3.disable_warnings()
+        sleep(1)
         json['tw'] =get_rand_tw() #此行为随机生成体温注释掉为默认体温
         json['lc'] = address
         mlogin(user,passwd)
         r = requests.post(url,headers=header,data=json,verify = False)
+        r.keep_alive = False
         r.encoding = r.apparent_encoding
         save_s=re.findall('alert\("(.*?)"\);',r.text)
         try:
@@ -127,6 +128,7 @@ def post_tw(user,passwd,address='',url='',time=''):#填写体温的总程序
     except:
         print('获取网页信息失败')
         r = requests.post(url,headers=header,data=json,verify = False)
+        print(r.text)
         send_mail(time+'自动填写体温失败!')#如果不需要发送邮件可以删除此行
         return "产生异常"
         
@@ -140,10 +142,7 @@ def auto_post(user,passwd,address):#自动填写上下午体温
      post_tw(user,passwd,address=address,url=add_url,time='上午体温')#上午体温网址
     
 if __name__=="__main__":#主程序执行
-    u1 = os.environ["zh1"]
-    p1 = os.environ["ps1"]
-    u2 = os.environ["zh2"]
-    p2 = os.environ["ps2"]
-    auto_post(u1,p1,address='河北省张家口市怀来县')
-    auto_post(u2,p2,address='河北省衡水市枣强县')
+
+    auto_post(os.environ["zh1"],os.environ["ps1"],address='河北省张家口市怀来县')
+    auto_post(os.environ["zh2"],os.environ["ps2"],address='河北省衡水市枣强县')
     print("程序执行完毕!")
