@@ -3,7 +3,6 @@ import random
 import requests
 import time
 import os
-import urllib3
 #发送邮件模块
 #***************************************************************
 import smtplib
@@ -76,7 +75,7 @@ def Simulate_login():
     sleep(0.5)
     s = requests.Session()
     s.keep_alive = False
-    html= s.get(murl,verify = False).text
+    html= s.get(murl).text
     userdata['csrfmiddlewaretoken']=re.findall('"csrfmiddlewaretoken" value="(.*?)"',html)[0]
     header['Cookie'] = re.findall('(csrftoken.*?) f',str(s.cookies))[0]
     srequests =requests.session()
@@ -107,12 +106,11 @@ def get_rand_tw():
 
 def post_tw(user,passwd,address='',url='',time=''):#填写体温的总程序
     try:
-        urllib3.disable_warnings()
         sleep(1)
         json['tw'] =get_rand_tw() #此行为随机生成体温注释掉为默认体温
         json['lc'] = address
         mlogin(user,passwd)
-        r = requests.post(url,headers=header,data=json,verify = False)
+        r = requests.post(url,headers=header,data=json)
         r.keep_alive = False
         r.encoding = r.apparent_encoding
         save_s=re.findall('alert\("(.*?)"\);',r.text)
@@ -127,7 +125,7 @@ def post_tw(user,passwd,address='',url='',time=''):#填写体温的总程序
             send_mail(time+'自动填写体温失败!')#如果不需要发送邮件可以删除此行
     except:
         print('获取网页信息失败')
-        r = requests.post(url,headers=header,data=json,verify = False)
+        r = requests.post(url,headers=header,data=json)
         print(r.text)
         send_mail(time+'自动填写体温失败!')#如果不需要发送邮件可以删除此行
         return "产生异常"
