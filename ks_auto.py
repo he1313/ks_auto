@@ -73,6 +73,7 @@ json = {
 }
 
 def Simulate_login():
+    sleep(0.5)
     s = requests.Session()
     s.keep_alive = False
     html= s.get(murl).text
@@ -106,6 +107,7 @@ def get_rand_tw():
 
 def post_tw(user,passwd,address='',url='',time=''):#填写体温的总程序
     try:
+        sleep(1)
         urllib3.disable_warnings()
         json['tw'] =get_rand_tw() #此行为随机生成体温注释掉为默认体温
         json['lc'] = address
