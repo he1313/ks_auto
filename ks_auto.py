@@ -67,13 +67,14 @@ json = {
     'jc':'False',
     'fx':'False',
     'jqjc':'',
-    'lc':'河北省张家口市怀来县',
+    'lc':'',
     'actionName':'actionValue'  
 
 }
 
 def Simulate_login():
     s = requests.Session()
+    s.keep_alive = False
     html= s.get(murl).text
     userdata['csrfmiddlewaretoken']=re.findall('"csrfmiddlewaretoken" value="(.*?)"',html)[0]
     header['Cookie'] = re.findall('(csrftoken.*?) f',str(s.cookies))[0]
@@ -109,6 +110,7 @@ def post_tw(user,passwd,address='',url='',time=''):#填写体温的总程序
         json['lc'] = address
         mlogin(user,passwd)
         r = requests.post(url,headers=header,data=json)
+        r.keep_alive = False
         r.encoding = r.apparent_encoding
         save_s=re.findall('alert\("(.*?)"\);',r.text)
         try:
