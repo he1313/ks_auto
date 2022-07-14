@@ -33,7 +33,7 @@ def send_mail(title='',content=''):
 #***************************************************************
 #发送邮件模块
 header = {
-'Connection': 'keep-alive',
+'Connection': 'close',
 'Host': 'ksxskj.hevttc.edu.cn',
 'User-Agent': 'User-Agent: Mozilla/5.0 (Linux; U; Android 2.2.1; zh-cn; HTC_Wildfire_A3333 Build/FRG83D) AppleWebKit/533.1(KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
 'Origin': 'https://ksxskj.hevttc.edu.cn',
